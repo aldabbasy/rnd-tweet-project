@@ -1,11 +1,25 @@
-import './App.css';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { handleInitialData } from '../Actions/shared'
+import Dashboard from "../Components/Dashboard";
 
-function App() {
+function App({dispatch, loading}) {
+
+  useEffect(() => {
+    dispatch(handleInitialData())
+  }, []);
+
   return (
     <div>
-      Tweets
+      {loading === true ? null : <Dashboard />}
     </div>
-  );
+  )
 }
 
-export default App;
+function mapStateToProps({ authedUser }) {
+  return {
+    loading: authedUser === null
+  }
+}
+
+export default connect()(App)

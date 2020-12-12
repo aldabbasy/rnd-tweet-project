@@ -2,7 +2,7 @@ import { getInitialData } from '../Services/api'
 import { recieveTweets } from './tweets'
 import { recieveUsers } from './users'
 import { setAuthedUser } from  './authedUsers'
-const AUTHED_ID = 'aldabbasy'
+const AUTHED_ID = 'tylermcginnis'
 
 export function handleInitialData() {
     return (dispatch) => {
