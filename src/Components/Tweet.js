@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { formatTweet, formatDate } from '../Services/helpers'
 import { TiArrowBackOutline, TiHeartOutline, TiHeartFullOutline } from 'react-icons/ti'
+import { handleToggleTweet } from '../Actions/tweets'
 
-function Tweet({tweet}) {
+function Tweet({tweet, dispatch, authedUser}) {
 
     const toParent = (e, id) => {
         e.preventDefault()
@@ -11,6 +12,12 @@ function Tweet({tweet}) {
     }
     const handleLike = (e) => {
         e.preventDefault()
+
+        dispatch(handleToggleTweet({
+            id:tweet.id,
+            hasLiked:tweet.hasLiked,
+            authedUser 
+        }))
     }
 
     const {name, avatar, timestamp, text, hasLiked, likes, replies, parent} = tweet
