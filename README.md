@@ -13,7 +13,7 @@ To get started right away:
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
-Topics Covered in This Project:
+## Topics Covered in This Project:
 
 * Functional React Components
 * Redux
