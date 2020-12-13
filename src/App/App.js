@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../Actions/shared'
 import Dashboard from "../Components/Dashboard";
 import NewTweet from "../Components/NewTweet";
 import TweetPage from "../Components/TweetPage";
 import LoadingBar from 'react-redux-loading'
+import Nav from "../Components/Nav";
+import { Route } from 'react-router-dom'
 
 function App({dispatch, loading}) {
 
@@ -13,10 +15,18 @@ function App({dispatch, loading}) {
   }, []);
 
   return (
-    <div>
+    <Fragment>
       <LoadingBar />
-      {loading === true ? null : <TweetPage match={{params: {id: 'czpa59mg577x1oo45cup0d'}}} />}
-    </div>
+      <div className='container'>
+        <Nav />
+        {loading === true ? null : 
+          <div>
+            <Route path='/' exact component={Dashboard}/>
+            <Route path='/tweet/:id' component={TweetPage}/>
+            <Route path='/new' component={NewTweet}/>
+          </div>}
+      </div>
+    </Fragment>
   )
 }
 
