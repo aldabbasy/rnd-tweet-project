@@ -20,13 +20,13 @@ function Tweet({tweet, dispatch, authedUser}) {
         }))
     }
 
+    if (tweet === null) {
+        return <p>This Tweet doesn't existd</p>
+    }
+
     const {name, avatar, timestamp, text, hasLiked, likes, replies, parent} = tweet
 
     return (
-        tweet === null ?
-        <div className='tweet'>
-            <p>this tweet doesn't exist</p>
-        </div> :
         <div className='tweet'>
             <img 
                 src={avatar}

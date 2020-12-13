@@ -15,7 +15,7 @@ function App({dispatch, loading}) {
   return (
     <div>
       <LoadingBar />
-      {loading === true ? null : <TweetPage match={{params: {id: 'r0xu2v1qrxa6ygtvf2rkjw'}}} />}
+      {loading === true ? null : <TweetPage match={{params: {id: 'czpa59mg577x1oo45cup0d'}}} />}
     </div>
   )
 }

@@ -4,7 +4,7 @@ import Tweet from './Tweet'
 import NewTweet from './NewTweet';
 
 function TweetPage({id, replies}) {
-    console.log('heloooooo: ' , id)
+    
     return (
         <div>
             <Tweet id={id}/>
